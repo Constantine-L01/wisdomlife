@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisdom Life Advisory (智慧人生) | Financial Planning, Corporate Insurance & Legacy</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#1a2b4c',
+                            900: '#0f1c33',
+                            700: '#283d66'
+                        },
+                        brandred: {
+                            600: '#d93838',
+                            700: '#b82b2b',
+                            500: '#f04848'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1a2b4c; }
+        .hero-gradient { background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%); }
+    </style>
+</head>
+<body class="bg-white text-navy-800 antialiased selection:bg-brandred-600 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-navy-900 text-white text-xs py-2 px-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <span><i class="fa-solid fa-phone-alt text-brandred-500 mr-1.5"></i> +1 (800) 555-WISDOM</span>
+                <span class="hidden sm:inline"><i class="fa-solid fa-envelope text-brandred-500 mr-1.5"></i> contact@wisdomlifeadvisory.com</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-gray-300">Client Portal:</span>
+                <a href="#contact" class="hover:text-brandred-500 font-medium transition-colors">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo & Brand -->
+            <a href="#home" class="flex items-center space-x-3 group">
+                <img src="logo.jpg" alt="Wisdom Life Advisory Logo" class="h-12 w-12 object-contain rounded-full shadow-sm border border-gray-100 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100x100/1a2b4c/ffffff?text=WLA'">
+                <div class="flex flex-col">
+                    <span class="text-lg font-bold tracking-tight text-navy-900 leading-tight">WISDOM LIFE</span>
+                    <span class="text-xs font-semibold tracking-widest text-brandred-600 uppercase">A D V I S O R Y (智慧人生)</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Menu (Exact order: Home -> Financial Planning -> Corporate Insurance -> Will & Trust -> About Us -> Careers -> Contact) -->
+            <nav class="hidden lg:flex items-center space-x-1 xl:space-x-4">
+                <a href="#home" class="text-sm font-medium text-navy-900 hover:text-brandred-600 transition-colors px-2 py-1">Home</a>
+                <a href="#financial-planning" class="text-sm font-medium text-gray-700 hover:text-brandred-600 transition-colors px-2 py-1">Financial Planning</a>
+                <a href="#corporate-insurance" class="text-sm font-medium text-gray-700 hover:text-brandred-600 transition-colors px-2 py-1">Corporate Insurance</a>
+                <a href="#will-trust" class="text-sm font-medium text-gray-700 hover:text-brandred-600 transition-colors px-2 py-1">Will & Trust</a>
+                <a href="#about" class="text-sm font-medium text-gray-700 hover:text-brandred-600 transition-colors px-2 py-1">About Us</a>
+                <a href="#careers" class="text-sm font-medium text-gray-700 hover:text-brandred-600 transition-colors px-2 py-1">Careers</a>
+                <a href="#contact" class="text-sm font-medium text-gray-700 hover:text-brandred-600 transition-colors px-2 py-1">Contact</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden sm:flex items-center space-x-3">
+                <a href="#contact" class="bg-brandred-600 hover:bg-brandred-700 text-white font-medium text-sm px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Free Financial Review
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-navy-900 hover:text-brandred-600 focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <a href="#home" class="block py-2 text-base font-medium text-navy-900 hover:bg-gray-50 rounded px-2">Home</a>
+            <a href="#financial-planning" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded px-2">Financial Planning</a>
+            <a href="#corporate-insurance" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded px-2">Corporate Insurance</a>
+            <a href="#will-trust" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded px-2">Will & Trust</a>
+            <a href="#about" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded px-2">About Us</a>
+            <a href="#careers" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded px-2">Careers</a>
+            <a href="#contact" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded px-2">Contact</a>
+            <div class="pt-2">
+                <a href="#contact" class="block text-center w-full bg-brandred-600 text-white font-medium py-3 rounded-lg shadow">Free Financial Review</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-16 pb-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Hero Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-navy-900/5 border border-navy-900/10 px-3.5 py-1.5 rounded-full">
+                        <span class="flex h-2 w-2 rounded-full bg-brandred-600"></span>
+                        <span class="text-xs font-semibold tracking-wider text-navy-900 uppercase">Trusted Corporate & Private Wealth Protection</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl xl:text-6xl font-bold tracking-tight text-navy-900 leading-[1.15]">
+                        Wisdom in Planning. <br>
+                        <span class="text-brandred-600">Confidence in Living.</span> <br>
+                        A Legacy for Tomorrow.
+                    </h1>
+                    <p class="text-lg text-gray-600 max-w-2xl font-normal leading-relaxed">
+                        Empowering individuals, families, and growing enterprises with tailored financial strategies, comprehensive corporate benefits, and professional risk management.
+                    </p>
+                    
+                    <!-- Action Buttons & Pathways -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="bg-brandred-600 hover:bg-brandred-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all text-center flex items-center justify-center space-x-2">
+                            <span>Free Financial Review</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#corporate-insurance" class="border-2 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white font-semibold px-6 py-4 rounded-xl transition-all text-center">
+                            Explore Corporate Insurance
+                        </a>
+                    </div>
+
+                    <!-- Pathway Quick Selector Cards -->
+                    <div class="pt-8 grid grid-cols-3 gap-3">
+                        <a href="#financial-planning" class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-brandred-600 hover:shadow-md transition-all group">
+                            <div class="text-brandred-600 text-lg mb-1 group-hover:scale-110 transition-transform"><i class="fa-solid fa-user-shield"></i></div>
+                            <h3 class="text-xs font-bold text-navy-900">Individual Wealth</h3>
+                            <p class="text-[11px] text-gray-500 mt-0.5">Planning & Protection</p>
+                        </a>
+                        <a href="#corporate-insurance" class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-brandred-600 hover:shadow-md transition-all group">
+                            <div class="text-brandred-600 text-lg mb-1 group-hover:scale-110 transition-transform"><i class="fa-solid fa-building-columns"></i></div>
+                            <h3 class="text-xs font-bold text-navy-900">Corporate Solutions</h3>
+                            <p class="text-[11px] text-gray-500 mt-0.5">Group Benefits & Key-Man</p>
+                        </a>
+                        <a href="#careers" class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-brandred-600 hover:shadow-md transition-all group">
+                            <div class="text-brandred-600 text-lg mb-1 group-hover:scale-110 transition-transform"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <h3 class="text-xs font-bold text-navy-900">Career Pathway</h3>
+                            <p class="text-[11px] text-gray-500 mt-0.5">Apprentice Program</p>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual Graphic / Logo Container -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none bg-white p-6 rounded-3xl shadow-2xl border border-gray-100">
+                        <div class="absolute -top-4 -right-4 bg-navy-900 text-white text-xs font-bold px-4 py-2 rounded-lg shadow-md">
+                            <i class="fa-solid fa-star text-amber-400 mr-1"></i> Corporate & Private Advisory
+                        </div>
+                        <div class="text-center py-6">
+                            <img src="logo.jpg" alt="Wisdom Life Advisory Tree" class="w-40 h-40 mx-auto object-contain mb-4" onerror="this.src='https://placehold.co/200x200/1a2b4c/ffffff?text=Wisdom+Life'">
+                            <h3 class="text-xl font-bold text-navy-900">Wisdom Life Advisory</h3>
+                            <p class="text-xs text-gray-500 mt-1">Financial Planning | Legacy Planning | Talent Development</p>
+                        </div>
+                        <div class="border-t border-gray-100 pt-4 mt-2 space-y-3">
+                            <div class="flex items-center justify-between text-xs font-medium text-gray-700 bg-gray-50 p-3 rounded-lg">
+                                <span class="flex items-center"><i class="fa-solid fa-check text-brandred-600 mr-2"></i> Corporate Employee Benefits</span>
+                                <span class="text-brandred-600 font-bold">Enterprise Grade</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs font-medium text-gray-700 bg-gray-50 p-3 rounded-lg">
+                                <span class="flex items-center"><i class="fa-solid fa-check text-brandred-600 mr-2"></i> Tailored Wealth & Trust</span>
+                                <span class="text-brandred-600 font-bold">100% Client-Centric</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Planning Section -->
+    <section id="financial-planning" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold tracking-widest text-brandred-600 uppercase">Individual Wealth</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">Financial Planning & Life Protection</h2>
+                <p class="text-gray-600 mt-3 text-base">We work with individuals and families to protect what matters, build financial resilience, and plan for lifetime milestones.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-gray-50 hover:bg-white p-8 rounded-2xl border border-gray-100 hover:border-brandred-600/30 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-navy-900 group-hover:bg-brandred-600 text-white rounded-xl flex items-center justify-center text-xl mb-6 transition-colors shadow-md">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Wealth Accumulation</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Personalized roadmaps for investment growth, retirement readiness, and achieving your family's lifelong milestones.</p>
+                    <a href="#contact" class="inline-flex items-center text-sm font-semibold text-brandred-600 mt-6 group-hover:translate-x-1 transition-transform">
+                        <span>Learn More</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-gray-50 hover:bg-white p-8 rounded-2xl border border-gray-100 hover:border-brandred-600/30 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-navy-900 group-hover:bg-brandred-600 text-white rounded-xl flex items-center justify-center text-xl mb-6 transition-colors shadow-md">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Life & General Insurance</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Comprehensive risk management solutions protecting your income, health, and valuable assets against life's uncertainties.</p>
+                    <a href="#contact" class="inline-flex items-center text-sm font-semibold text-brandred-600 mt-6 group-hover:translate-x-1 transition-transform">
+                        <span>Learn More</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-gray-50 hover:bg-white p-8 rounded-2xl border border-gray-100 hover:border-brandred-600/30 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-navy-900 group-hover:bg-brandred-600 text-white rounded-xl flex items-center justify-center text-xl mb-6 transition-colors shadow-md">
+                        <i class="fa-solid fa-piggy-bank"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Retirement & Education</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Secure your golden years and fund your children's tertiary education with structured, guaranteed savings plans.</p>
+                    <a href="#contact" class="inline-flex items-center text-sm font-semibold text-brandred-600 mt-6 group-hover:translate-x-1 transition-transform">
+                        <span>Learn More</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Insurance Section -->
+    <section id="corporate-insurance" class="py-24 bg-gradient-to-b from-gray-50 to-white border-t border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold tracking-widest text-brandred-600 uppercase">Enterprise Solutions</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">Corporate Insurance & Group Benefits</h2>
+                <p class="text-gray-600 mt-3 text-base">Protecting your enterprise, retaining top talent, and securing business continuity through structured employee benefits and risk advisory.</p>
+            </div>
+
+            <!-- Corporate Insurance Featured Banner -->
+            <div class="bg-navy-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden mb-12">
+                <div class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-brandred-600/20 blur-3xl pointer-events-none"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-8 space-y-4">
+                        <span class="bg-brandred-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">Enterprise Risk Management</span>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white">Comprehensive Corporate Insurance</h3>
+                        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                            Designed to provide robust medical, term life, accident, and liability protection across your organization. Enhance employee retention and fulfill statutory welfare commitments with institutional efficiency.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                            <div class="bg-navy-800/80 p-3 rounded-xl border border-gray-700/60 text-xs">
+                                <i class="fa-solid fa-check text-brandred-500 mr-1.5"></i> Employee Pooling Plans
+                            </div>
+                            <div class="bg-navy-800/80 p-3 rounded-xl border border-gray-700/60 text-xs">
+                                <i class="fa-solid fa-check text-brandred-500 mr-1.5"></i> Streamlined Claims Admin
+                            </div>
+                            <div class="bg-navy-800/80 p-3 rounded-xl border border-gray-700/60 text-xs">
+                                <i class="fa-solid fa-check text-brandred-500 mr-1.5"></i> Tax-Efficient Business Expense
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-4 text-center lg:text-right">
+                        <a href="#contact" class="inline-block bg-brandred-600 hover:bg-brandred-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg transition-all text-sm">
+                            Request Corporate Proposal
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Corporate Offerings Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:border-brandred-600 transition-all">
+                    <div class="w-12 h-12 bg-navy-900 text-white rounded-xl flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-users-rectangle"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-navy-900 mb-2">Group Employee Benefits</h4>
+                    <p class="text-gray-600 text-xs leading-relaxed">Customized outpatient, hospitalization, and dental insurance plans that keep your workforce healthy, secure, and motivated.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:border-brandred-600 transition-all">
+                    <div class="w-12 h-12 bg-navy-900 text-white rounded-xl flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-navy-900 mb-2">Key-Man & Shareholder Protection</h4>
+                    <p class="text-gray-600 text-xs leading-relaxed">Financial safeguarding ensuring business stability, debt coverage, and smooth equity buyouts in the event of founder or key executive disability/loss.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:border-brandred-600 transition-all">
+                    <div class="w-12 h-12 bg-navy-900 text-white rounded-xl flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-navy-900 mb-2">Business Liability & Risk</h4>
+                    <p class="text-gray-600 text-xs leading-relaxed">Comprehensive commercial risk evaluations and property/liability coverage tailored to protect enterprise physical and intangible assets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Will & Trust Section -->
+    <section id="will-trust" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-brandred-600 uppercase">Legacy & Estate</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-navy-900">Will & Trust Services</h2>
+                    <p class="text-gray-600 text-base leading-relaxed">
+                        Estate planning is essential to ensure your hard-earned assets are distributed according to your exact wishes. We provide professional will-writing, trust structuring, and legacy succession planning.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <div class="text-brandred-600 mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Professional Will Drafting</h4>
+                                <p class="text-xs text-gray-500">Prevent legal complications and secure clear asset distribution for your family.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="text-brandred-600 mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Family Trust Structures</h4>
+                                <p class="text-xs text-gray-500">Protect wealth across generations, provide for minors, and manage charitable giving.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <a href="#contact" class="bg-navy-900 hover:bg-navy-800 text-white font-semibold px-7 py-3.5 rounded-xl shadow transition-all inline-block text-sm">
+                            Consult on Will & Trust
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 bg-gray-50 p-8 rounded-3xl border border-gray-200 shadow-sm">
+                    <div class="text-center py-6">
+                        <div class="w-20 h-20 bg-navy-900 text-white rounded-2xl flex items-center justify-center mx-auto text-3xl mb-4 shadow-lg">
+                            <i class="fa-solid fa-file-contract"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-navy-900">Secure Your Legacy Today</h3>
+                        <p class="text-xs text-gray-500 mt-2 max-w-sm mx-auto">Take control of your estate planning with licensed advisors who care about your family's enduring security.</p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-200 flex justify-between text-xs font-semibold text-gray-700">
+                        <span><i class="fa-solid fa-lock text-brandred-600 mr-1"></i> Strict Confidentiality</span>
+                        <span><i class="fa-solid fa-award text-brandred-600 mr-1"></i> Certified Specialists</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 bg-navy-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d93838_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- About Header & Mission (Exact provided content) -->
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span class="text-xs font-bold tracking-widest text-brandred-500 uppercase">ABOUT WISDOM LIFE ADVISORY</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-2 text-white">Wisdom in Planning. Confidence in Living. A Legacy for Tomorrow.</h2>
+                <p class="text-gray-300 mt-4 text-base leading-relaxed">
+                    At Wisdom Life Advisory, we believe financial planning is about more than products.<br>
+                    It is about understanding people, families, businesses and their aspirations, then helping them make informed decisions for today and tomorrow.
+                </p>
+            </div>
+
+            <!-- Approach breakdown & Philosophy -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+                <div class="lg:col-span-6 bg-navy-800 p-8 rounded-2xl border border-gray-700 shadow-xl space-y-6">
+                    <h3 class="text-xl font-bold text-brandred-500 flex items-center">
+                        <i class="fa-solid fa-compass mr-2"></i> Our Approach
+                    </h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">Our approach brings together:</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-medium text-gray-200">
+                        <div class="bg-navy-900/60 p-3 rounded-xl border border-gray-700/50 flex items-center">
+                            <i class="fa-solid fa-check text-brandred-500 mr-2"></i> Financial Planning
+                        </div>
+                        <div class="bg-navy-900/60 p-3 rounded-xl border border-gray-700/50 flex items-center">
+                            <i class="fa-solid fa-check text-brandred-500 mr-2"></i> Life & General Insurance
+                        </div>
+                        <div class="bg-navy-900/60 p-3 rounded-xl border border-gray-700/50 flex items-center">
+                            <i class="fa-solid fa-check text-brandred-500 mr-2"></i> Corporate & Group Insurance
+                        </div>
+                        <div class="bg-navy-900/60 p-3 rounded-xl border border-gray-700/50 flex items-center">
+                            <i class="fa-solid fa-check text-brandred-500 mr-2"></i> Will & Trust
+                        </div>
+                        <div class="bg-navy-900/60 p-3 rounded-xl border border-gray-700/50 flex items-center sm:col-span-2">
+                            <i class="fa-solid fa-check text-brandred-500 mr-2"></i> Legacy Planning
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-xs leading-relaxed pt-2">
+                        We work with individuals, families and businesses to help them protect what matters, build financial strength and plan for the future. At the same time, we are committed to developing the next generation of financial professionals through training, mentorship and career opportunities.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="bg-navy-800 p-8 rounded-2xl border border-gray-700 shadow-xl text-center space-y-3">
+                        <h3 class="text-xl font-bold text-brandred-500">Our Philosophy</h3>
+                        <div class="text-xl font-bold text-white space-y-1">
+                            <p>Plan with Wisdom.</p>
+                            <p class="text-brandred-500">Live with Confidence.</p>
+                            <p>Leave a Legacy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WISDOM Values Acronym -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-bold text-center mb-10 text-white">Our Values</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-navy-800 p-6 rounded-xl border border-gray-700/80">
+                        <div class="text-brandred-500 font-bold text-lg mb-1">W — Wisdom</div>
+                        <p class="text-xs text-gray-300">Wise and thoughtful financial guidance.</p>
+                    </div>
+                    <div class="bg-navy-800 p-6 rounded-xl border border-gray-700/80">
+                        <div class="text-brandred-500 font-bold text-lg mb-1">I — Integrity</div>
+                        <p class="text-xs text-gray-300">Honest and trusted relationships.</p>
+                    </div>
+                    <div class="bg-navy-800 p-6 rounded-xl border border-gray-700/80">
+                        <div class="text-brandred-500 font-bold text-lg mb-1">S — Security</div>
+                        <p class="text-xs text-gray-300">Protecting what matters most.</p>
+                    </div>
+                    <div class="bg-navy-800 p-6 rounded-xl border border-gray-700/80">
+                        <div class="text-brandred-500 font-bold text-lg mb-1">D — Direction</div>
+                        <p class="text-xs text-gray-300">Creating clarity for your financial journey.</p>
+                    </div>
+                    <div class="bg-navy-800 p-6 rounded-xl border border-gray-700/80">
+                        <div class="text-brandred-500 font-bold text-lg mb-1">O — Opportunity</div>
+                        <p class="text-xs text-gray-300">Creating opportunities for clients and future advisors.</p>
+                    </div>
+                    <div class="bg-navy-800 p-6 rounded-xl border border-gray-700/80">
+                        <div class="text-brandred-500 font-bold text-lg mb-1">M — Legacy</div>
+                        <p class="text-xs text-gray-300">Planning today for generations to come.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Founder / Advisory Team Section (Exact requested copy & button) -->
+            <div class="bg-navy-800 p-8 sm:p-12 rounded-3xl border border-gray-700 shadow-2xl max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-5 text-center">
+                        <div class="relative w-48 h-48 mx-auto rounded-2xl overflow-hidden shadow-lg border-2 border-brandred-500">
+                            <img src="https://placehold.co/400x400/1a2b4c/ffffff?text=Founder+Photo" alt="Founder / Advisory Team" class="w-full h-full object-cover">
+                        </div>
+                        <span class="inline-block mt-3 text-xs font-semibold text-brandred-400 bg-brandred-600/10 px-3 py-1 rounded-full border border-brandred-500/20">[YOUR PHOTO]</span>
+                    </div>
+                    <div class="md:col-span-7 space-y-4">
+                        <h3 class="text-2xl font-bold text-white">Meet Our Founder / Advisory Team</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            With decades of experience in insurance and financial planning, our team believes that good advice starts with listening — understanding each client's family, goals, concerns and priorities before recommending any solution.
+                        </p>
+                        <div class="pt-2">
+                            <a href="#contact" class="inline-block bg-brandred-600 hover:bg-brandred-700 text-white font-semibold px-6 py-3 rounded-xl shadow transition-all text-sm">
+                                [ MEET OUR TEAM ]
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers Section -->
+    <section id="careers" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-brandred-600 uppercase">Talent Development</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 leading-tight">Join Wisdom Life Advisory</h2>
+                    <p class="text-gray-600 text-base leading-relaxed">
+                        We are committed to developing the next generation of financial professionals through professional training, one-on-one mentorship, and robust career pathways.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <div class="text-brandred-600 mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Structured Mentorship</h4>
+                                <p class="text-xs text-gray-500">Guidance from industry veterans in private wealth and corporate insurance.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="text-brandred-600 mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Comprehensive Training</h4>
+                                <p class="text-xs text-gray-500">Master financial planning, risk advisory, and client relationship management.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <a href="#contact" class="bg-navy-900 hover:bg-navy-800 text-white font-semibold px-7 py-3.5 rounded-xl shadow transition-all inline-block text-sm">
+                            Apply for Career Opportunities
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 shadow-sm relative">
+                        <div class="absolute -top-4 -left-4 bg-brandred-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-lg shadow">
+                            Applications Open
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-4">Candidate Application Form</h3>
+                        <form onsubmit="event.preventDefault(); showModal('Thank you! Your career application has been submitted. Our recruitment team will contact you shortly.');" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-navy-900 mb-1">Full Name</label>
+                                <input type="text" required class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-navy-900 mb-1">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm" placeholder="john@example.com">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-navy-900 mb-1">Phone Number</label>
+                                <input type="tel" required class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm" placeholder="+1 (555) 000-0000">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-navy-900 mb-1">Career Track</label>
+                                <select class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm bg-white">
+                                    <option>Private Wealth Advisory Track</option>
+                                    <option>Corporate Insurance Specialist Track</option>
+                                    <option>Leadership & Management Track</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-brandred-600 hover:bg-brandred-700 text-white font-semibold py-3 rounded-lg shadow transition-all text-sm">
+                                Submit Application
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-navy-900 rounded-3xl p-8 sm:p-16 text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-brandred-600/20 blur-3xl pointer-events-none"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                    <div class="lg:col-span-5 space-y-6">
+                        <span class="text-xs font-bold tracking-widest text-brandred-500 uppercase">Get Started Today</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white">Schedule Your Free Financial Review</h2>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Take the first step toward absolute peace of mind. Meet with our experienced advisors for a comprehensive assessment of your personal wealth, corporate benefits, or legacy plan.
+                        </p>
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-center space-x-3 text-sm text-gray-300">
+                                <div class="w-8 h-8 rounded-lg bg-brandred-600/20 flex items-center justify-center text-brandred-500"><i class="fa-solid fa-phone"></i></div>
+                                <span>+1 (800) 555-WISDOM</span>
+                            </div>
+                            <div class="flex items-center space-x-3 text-sm text-gray-300">
+                                <div class="w-8 h-8 rounded-lg bg-brandred-600/20 flex items-center justify-center text-brandred-500"><i class="fa-solid fa-envelope"></i></div>
+                                <span>review@wisdomlifeadvisory.com</span>
+                            </div>
+                            <div class="flex items-center space-x-3 text-sm text-gray-300">
+                                <div class="w-8 h-8 rounded-lg bg-brandred-600/20 flex items-center justify-center text-brandred-500"><i class="fa-solid fa-location-dot"></i></div>
+                                <span>Financial District, Suite 1200, New York, NY</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 bg-white text-navy-900 p-8 rounded-2xl shadow-xl">
+                        <h3 class="text-xl font-bold mb-4">Request Your Consultation</h3>
+                        <form onsubmit="event.preventDefault(); showModal('Thank you! Your request for a Free Financial Review or Corporate Proposal has been received. Our advisory team will reach out within 24 hours.');" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-navy-900 mb-1">Your Name / Company</label>
+                                    <input type="text" required class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm" placeholder="Jane Doe / Enterprise Inc.">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-navy-900 mb-1">Phone Number</label>
+                                    <input type="tel" required class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm" placeholder="+1 (555) 000-0000">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-navy-900 mb-1">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm" placeholder="jane@example.com">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-navy-900 mb-1">Service Interest</label>
+                                <select class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm bg-white">
+                                    <option>Financial Planning & Wealth Review</option>
+                                    <option>Corporate Insurance & Employee Benefits Proposal</option>
+                                    <option>Will & Trust Consultation</option>
+                                    <option>Career / Apprentice Program Inquiry</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-navy-900 mb-1">Message or Specific Goals</label>
+                                <textarea rows="3" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm" placeholder="Tell us about your organization or personal objectives..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-brandred-600 hover:bg-brandred-700 text-white font-semibold py-3.5 rounded-lg shadow-lg transition-all text-sm">
+                                Request Consultation / Proposal
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 text-white border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center space-x-3">
+                        <img src="logo.jpg" alt="Logo" class="h-10 w-10 object-contain rounded-full" onerror="this.src='https://placehold.co/100x100/1a2b4c/ffffff?text=WLA'">
+                        <span class="text-base font-bold tracking-tight">WISDOM LIFE ADVISORY</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Wisdom in Planning. Confidence in Living. A Legacy for Tomorrow. (智慧人生)
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#home" class="hover:text-brandred-500 transition-colors">Home</a></li>
+                        <li><a href="#financial-planning" class="hover:text-brandred-500 transition-colors">Financial Planning</a></li>
+                        <li><a href="#corporate-insurance" class="hover:text-brandred-500 transition-colors">Corporate Insurance</a></li>
+                        <li><a href="#will-trust" class="hover:text-brandred-500 transition-colors">Will & Trust</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4">About & Career</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#about" class="hover:text-brandred-500 transition-colors">About Us</a></li>
+                        <li><a href="#careers" class="hover:text-brandred-500 transition-colors">Careers & Training</a></li>
+                        <li><a href="#about" class="hover:text-brandred-500 transition-colors">Philosophy & Values</a></li>
+                        <li><a href="#contact" class="hover:text-brandred-500 transition-colors">Client Portal Login</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 text-sm mb-4">
+                        <a href="#contact" class="w-9 h-9 rounded-lg bg-navy-800 flex items-center justify-center text-gray-300 hover:bg-brandred-600 hover:text-white transition-all"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#contact" class="w-9 h-9 rounded-lg bg-navy-800 flex items-center justify-center text-gray-300 hover:bg-brandred-600 hover:text-white transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#contact" class="w-9 h-9 rounded-lg bg-navy-800 flex items-center justify-center text-gray-300 hover:bg-brandred-600 hover:text-white transition-all"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                    <p class="text-[11px] text-gray-400">Ready for conversion to Wix, WordPress or Webflow.</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400">
+                <p>&copy; 2026 Wisdom Life Advisory (智慧人生). All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="#contact" class="hover:text-brandred-500 transition-colors">Privacy Policy</a>
+                    <a href="#contact" class="hover:text-brandred-500 transition-colors">Terms of Service</a>
+                    <a href="#contact" class="hover:text-brandred-500 transition-colors">Regulatory Disclosure</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Modal Box (No alert() used) -->
+    <div id="custom-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl border border-gray-100 text-center space-y-4">
+            <div class="w-16 h-16 bg-brandred-600/10 text-brandred-600 rounded-full flex items-center justify-center mx-auto text-2xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="text-xl font-bold text-navy-900">Success</h3>
+            <p id="modal-message" class="text-sm text-gray-600 leading-relaxed"></p>
+            <button onclick="closeModal()" class="w-full bg-brandred-600 hover:bg-brandred-700 text-white font-semibold py-3 rounded-xl shadow transition-all text-sm">
+                OK
+            </button>
+        </div>
+    </div>
+
+    <!-- Script for interactivity -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on clicking links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Custom Modal Functions
+        function showModal(message) {
+            document.getElementById('modal-message').innerText = message;
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
