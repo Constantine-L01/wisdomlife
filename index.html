@@ -1,1119 +1,835 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wisdom Life Advisory (智慧人生) | Financial Planning, Corporate Insurance & Legacy</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: {
-                            800: '#1a2b4c',
-                            900: '#0f1c33',
-                            700: '#283d66'
-                        },
-                        brandred: {
-                            600: '#d93838',
-                            700: '#b82b2b',
-                            500: '#f04848'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #1a2b4c;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wisdom Life Advisory | Personal & Corporate Financial Advisory</title>
 
-        .hero-gradient {
-            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
-        }
-    </style>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* CSS Reset & Bright Theme Variables */
+    :root {
+      --bg-main: #FAF9F5;
+      /* Warm Off-White / Alabaster */
+      --bg-card: #FFFFFF;
+      /* Pure White */
+      --bg-card-subtle: #F4F2EB;
+      /* Soft Neutral */
+      --text-primary: #111827;
+      /* Deep Slate */
+      --text-secondary: #4B5563;
+      /* Muted Charcoal */
+      --text-muted: #6B7280;
+      /* Light Muted Gray */
+      --accent-gold: #B8925A;
+      /* Warm Champagne Gold */
+      --accent-gold-hover: #9E7B47;
+      --border-color: #E5E2D9;
+      /* Subtle Warm Border */
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Typography */
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+      display: block;
+      font-weight: 600;
+    }
+
+    /* Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(250, 249, 245, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 84px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+    }
+
+    .logo-icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .logo span span {
+      color: var(--accent-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+
+    .btn-nav {
+      padding: 10px 22px;
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold) !important;
+      border-radius: 4px;
+      font-size: 0.85rem !important;
+      font-weight: 500 !important;
+    }
+
+    .btn-nav:hover {
+      background-color: var(--accent-gold);
+      color: #FFFFFF !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 160px 0 100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 3.8rem;
+      line-height: 1.12;
+      margin-bottom: 24px;
+    }
+
+    .hero-text p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+      font-weight: 300;
+      max-width: 520px;
+    }
+
+    .hero-image {
+      position: relative;
+      padding: 12px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--accent-gold);
+      color: #FFFFFF;
+      padding: 14px 34px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 12px rgba(184, 146, 90, 0.2);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-gold-hover);
+    }
+
+    /* Services Section */
+    .services {
+      padding: 100px 0;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-header {
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-size: 2.6rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .service-category {
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      padding: 44px;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-category:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04);
+    }
+
+    .service-category h3 {
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 16px;
+    }
+
+    .service-item {
+      margin-bottom: 28px;
+    }
+
+    .service-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .service-item h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-family: var(--font-sans);
+    }
+
+    .service-item p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    /* Careers Section */
+    .careers {
+      padding: 100px 0;
+      background-color: var(--bg-main);
+    }
+
+    .careers-intro {
+      max-width: 760px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .careers-intro h2 {
+      font-size: 2.6rem;
+      margin-bottom: 12px;
+    }
+
+    .careers-intro p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .careers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+
+    .career-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-color);
+      padding: 36px 30px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .career-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04);
+    }
+
+    .career-card.featured {
+      border-color: var(--accent-gold);
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAF7F2 100%);
+    }
+
+    .career-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      background-color: var(--bg-card-subtle);
+      color: var(--text-secondary);
+      border-radius: 4px;
+      font-weight: 600;
+      align-self: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .career-badge.gold {
+      background-color: rgba(184, 146, 90, 0.12);
+      color: var(--accent-gold);
+    }
+
+    .career-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .career-card p.card-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: 20px;
+      min-height: 54px;
+    }
+
+    .role-section-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .career-list {
+      list-style: none;
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+
+    .career-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 10px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .career-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-gold);
+      font-size: 1.1rem;
+      top: -2px;
+    }
+
+    .btn-card {
+      display: block;
+      text-align: center;
+      padding: 12px 20px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+    }
+
+    .btn-card:hover {
+      border-color: var(--accent-gold);
+      background-color: var(--accent-gold);
+      color: #FFFFFF;
+    }
+
+    /* Why Join Us Strip */
+    .why-join {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-color);
+      padding: 40px;
+      border-radius: 8px;
+    }
+
+    .why-join-title {
+      font-size: 1.4rem;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .pillar-box h5 {
+      font-size: 0.95rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+    }
+
+    .pillar-box p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 100px 0;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+    }
+
+    .contact-info p {
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+
+    .info-detail {
+      margin-bottom: 24px;
+    }
+
+    .info-detail label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .info-detail span {
+      color: var(--text-primary);
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      background-color: #FFFFFF;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      background-color: var(--bg-main);
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 992px) {
+      .careers-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .hero-grid,
+      .services-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text h1 {
+        font-size: 2.8rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
-<body class="bg-white text-navy-800 antialiased selection:bg-brandred-600 selection:text-white">
+<body>
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-navy-900 text-white text-xs py-2 px-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <span><i class="fa-solid fa-phone-alt text-brandred-500 mr-1.5"></i> 6012-4011868</span>
-                <span class="hidden sm:inline"><i class="fa-solid fa-envelope text-brandred-500 mr-1.5"></i>
-                    wlifeadvisory@gmail.com</span>
-            </div>
-            <div class="flex items-center space-x-3">
-                <span class="text-gray-300">Client Portal:</span>
-                <a href="#contact" class="hover:text-brandred-500 font-medium transition-colors">Login</a>
-            </div>
-        </div>
+  <!-- Navigation Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">
+          <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="4" fill="#B8925A" />
+            <path d="M10 10L16 22L22 10" stroke="white" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>WISDOM LIFE <span>ADVISORY</span></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact" class="btn-nav">Consultation</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <!-- Main Navigation Bar -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-            <!-- Logo & Brand (No text wrap) -->
-            <a href="#home" class="flex items-center space-x-3 group flex-shrink-0">
-                <img src="logo_small.png" alt="Wisdom Life Advisory Logo"
-                    class="h-11 w-11 object-contain rounded-full shadow-sm border border-gray-100 group-hover:scale-105 transition-transform"
-                    onerror="this.src='https://placehold.co/100x100/1a2b4c/ffffff?text=WLA'">
-                <div class="flex flex-col">
-                    <span
-                        class="text-base sm:text-lg font-bold tracking-tight text-navy-900 leading-tight whitespace-nowrap">WISDOM
-                        LIFE</span>
-                    <span
-                        class="text-[11px] font-semibold tracking-wider text-brandred-600 uppercase whitespace-nowrap">ADVISORY
-                        (智慧人生)</span>
-                </div>
-            </a>
-
-            <!-- Desktop Nav Menu (Single-line, whitespace-nowrap, with Careers dropdown) -->
-            <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2">
-                <a href="#home"
-                    class="text-sm font-medium text-navy-900 hover:text-brandred-600 transition-colors px-3 py-2 rounded-lg hover:bg-gray-50 whitespace-nowrap">Home</a>
-                <a href="#financial-planning"
-                    class="text-sm font-medium text-gray-700 hover:text-brandred-600 transition-colors px-3 py-2 rounded-lg hover:bg-gray-50 whitespace-nowrap">Financial
-                    Planning</a>
-                <a href="#corporate-insurance"
-                    class="text-sm font-medium text-gray-700 hover:text-brandred-600 transition-colors px-3 py-2 rounded-lg hover:bg-gray-50 whitespace-nowrap">Corporate
-                    Insurance</a>
-                <a href="#will-trust"
-                    class="text-sm font-medium text-gray-700 hover:text-brandred-600 transition-colors px-3 py-2 rounded-lg hover:bg-gray-50 whitespace-nowrap">Will
-                    & Trust</a>
-                <a href="#about"
-                    class="text-sm font-medium text-gray-700 hover:text-brandred-600 transition-colors px-3 py-2 rounded-lg hover:bg-gray-50 whitespace-nowrap">About
-                    Us</a>
-
-                <!-- Careers with Dropdown (Recruitment Funnel) -->
-                <div class="relative group">
-                    <a href="#careers"
-                        class="text-sm font-medium text-gray-700 hover:text-brandred-600 transition-colors px-3 py-2 rounded-lg hover:bg-gray-50 flex items-center whitespace-nowrap">
-                        <span>Careers</span>
-                        <i
-                            class="fa-solid fa-chevron-down text-[9px] ml-1.5 opacity-60 group-hover:rotate-180 transition-transform"></i>
-                    </a>
-                    <!-- Dropdown Menu -->
-                    <div class="absolute top-full left-0 pt-2 w-72 hidden group-hover:block transition-all z-50">
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-2 space-y-1">
-                            <a href="#apprentice-programme"
-                                class="block p-3 rounded-xl hover:bg-brandred-50/80 transition-all group/sub">
-                                <div class="flex items-center justify-between">
-                                    <span
-                                        class="text-xs font-bold text-navy-900 group-hover/sub:text-brandred-600">Great
-                                        A.C.E. Apprentice</span>
-                                    <span
-                                        class="text-[9px] font-bold bg-brandred-600 text-white px-2 py-0.5 rounded-full uppercase tracking-wider">Hiring</span>
-                                </div>
-                                <p class="text-[11px] text-gray-500 mt-1 leading-snug">12-Month accelerated training
-                                    programme for students & graduates</p>
-                            </a>
-                            <a href="#careers" class="block p-3 rounded-xl hover:bg-gray-50 transition-all group/sub">
-                                <span class="text-xs font-bold text-navy-900 group-hover/sub:text-brandred-600">Careers
-                                    Overview</span>
-                                <p class="text-[11px] text-gray-500 mt-0.5 leading-snug">Explore mentorship and
-                                    professional advisory pathways</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="#contact"
-                    class="text-sm font-medium text-gray-700 hover:text-brandred-600 transition-colors px-3 py-2 rounded-lg hover:bg-gray-50 whitespace-nowrap">Contact</a>
-            </nav>
-
-            <!-- CTA Button -->
-            <div class="hidden sm:flex items-center space-x-3 flex-shrink-0">
-                <a href="#contact"
-                    class="bg-brandred-600 hover:bg-brandred-700 text-white font-medium text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
-                    Free Financial Review
-                </a>
-            </div>
-
-            <!-- Mobile menu button -->
-            <div class="lg:hidden flex items-center">
-                <button id="mobile-menu-btn" class="text-navy-900 hover:text-brandred-600 focus:outline-none p-2">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Nav Menu Drawer -->
-        <div id="mobile-menu"
-            class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-2 shadow-xl">
-            <a href="#home"
-                class="block py-2 text-base font-medium text-navy-900 hover:bg-gray-50 rounded px-2">Home</a>
-            <a href="#financial-planning"
-                class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded px-2">Financial
-                Planning</a>
-            <a href="#corporate-insurance"
-                class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded px-2">Corporate
-                Insurance</a>
-            <a href="#will-trust"
-                class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded px-2">Will & Trust</a>
-            <a href="#about" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded px-2">About
-                Us</a>
-
-            <div class="pt-1 pb-1 border-t border-b border-gray-100 my-1 space-y-1">
-                <a href="#apprentice-programme"
-                    class="block py-2.5 px-3 rounded-xl bg-brandred-50 text-brandred-700 font-semibold text-sm flex items-center justify-between">
-                    <span>Great A.C.E. Apprentice Programme</span>
-                    <span
-                        class="text-[10px] font-bold bg-brandred-600 text-white px-2 py-0.5 rounded-full uppercase">Hiring</span>
-                </a>
-                <a href="#careers"
-                    class="block py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded px-3">Careers
-                    Overview</a>
-            </div>
-
-            <a href="#contact"
-                class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded px-2">Contact</a>
-            <div class="pt-2">
-                <a href="#contact"
-                    class="block text-center w-full bg-brandred-600 text-white font-medium py-3 rounded-lg shadow">
-                    Free Financial Review
-                </a>
-            </div>
-        </div>
-    </header>
-
+  <main>
     <!-- Hero Section -->
-    <section id="home" class="hero-gradient pt-16 pb-24 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <!-- Left Hero Content -->
-                <div class="lg:col-span-7 space-y-6">
-                    <div
-                        class="inline-flex items-center space-x-2 bg-navy-900/5 border border-navy-900/10 px-3.5 py-1.5 rounded-full">
-                        <span class="flex h-2 w-2 rounded-full bg-brandred-600"></span>
-                        <span class="text-xs font-semibold tracking-wider text-navy-900 uppercase">Trusted Corporate &
-                            Private Wealth Protection</span>
-                    </div>
-                    <h1 class="text-4xl sm:text-5xl xl:text-6xl font-bold tracking-tight text-navy-900 leading-[1.15]">
-                        Wisdom in Planning. <br>
-                        <span class="text-brandred-600">Confidence in Living.</span> <br>
-                        A Legacy for Tomorrow.
-                    </h1>
-                    <p class="text-lg text-gray-600 max-w-2xl font-normal leading-relaxed">
-                        Empowering individuals, families, and growing enterprises with tailored financial strategies,
-                        comprehensive corporate benefits, and professional risk management.
-                    </p>
-
-                    <!-- Action Buttons & Pathways -->
-                    <div
-                        class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
-                        <a href="#contact"
-                            class="bg-brandred-600 hover:bg-brandred-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all text-center flex items-center justify-center space-x-2">
-                            <span>Free Financial Review</span>
-                            <i class="fa-solid fa-arrow-right text-sm"></i>
-                        </a>
-                        <a href="#corporate-insurance"
-                            class="border-2 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white font-semibold px-6 py-4 rounded-xl transition-all text-center">
-                            Explore Corporate Insurance
-                        </a>
-                    </div>
-
-                    <!-- Pathway Quick Selector Cards -->
-                    <div class="pt-8 grid grid-cols-3 gap-3">
-                        <a href="#financial-planning"
-                            class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-brandred-600 hover:shadow-md transition-all group">
-                            <div class="text-brandred-600 text-lg mb-1 group-hover:scale-110 transition-transform"><i
-                                    class="fa-solid fa-user-shield"></i></div>
-                            <h3 class="text-xs font-bold text-navy-900">Individual Wealth</h3>
-                            <p class="text-[11px] text-gray-500 mt-0.5">Planning & Protection</p>
-                        </a>
-                        <a href="#corporate-insurance"
-                            class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-brandred-600 hover:shadow-md transition-all group">
-                            <div class="text-brandred-600 text-lg mb-1 group-hover:scale-110 transition-transform"><i
-                                    class="fa-solid fa-building-columns"></i></div>
-                            <h3 class="text-xs font-bold text-navy-900">Corporate Solutions</h3>
-                            <p class="text-[11px] text-gray-500 mt-0.5">Group Benefits & Key-Man</p>
-                        </a>
-                        <a href="#apprentice-programme"
-                            class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-brandred-600 hover:shadow-md transition-all group">
-                            <div class="text-brandred-600 text-lg mb-1 group-hover:scale-110 transition-transform"><i
-                                    class="fa-solid fa-graduation-cap"></i></div>
-                            <h3 class="text-xs font-bold text-navy-900">Career Pathway</h3>
-                            <p class="text-[11px] text-gray-500 mt-0.5">Apprentice Program</p>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right Visual Graphic / Logo Container -->
-                <div class="lg:col-span-5 relative">
-                    <div
-                        class="relative mx-auto max-w-md lg:max-w-none bg-white p-6 rounded-3xl shadow-2xl border border-gray-100">
-                        <div class="text-center py-6">
-                            <img src="logo_small.png" alt="Wisdom Life Advisory Tree"
-                                class="w-40 h-40 mx-auto object-contain mb-4"
-                                onerror="this.src='https://placehold.co/200x200/1a2b4c/ffffff?text=Wisdom+Life'">
-                            <h3 class="text-xl font-bold text-navy-900">Wisdom Life Advisory</h3>
-                            <p class="text-xs text-gray-500 mt-1">Financial Planning | Legacy Planning | Talent
-                                Development</p>
-                        </div>
-                        <div class="border-t border-gray-100 pt-4 mt-2 space-y-3">
-                            <div
-                                class="flex items-center justify-between text-xs font-medium text-gray-700 bg-gray-50 p-3 rounded-lg">
-                                <span class="flex items-center"><i class="fa-solid fa-check text-brandred-600 mr-2"></i>
-                                    Corporate Employee Benefits</span>
-                                <span class="text-brandred-600 font-bold">Enterprise Grade</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between text-xs font-medium text-gray-700 bg-gray-50 p-3 rounded-lg">
-                                <span class="flex items-center"><i class="fa-solid fa-check text-brandred-600 mr-2"></i>
-                                    Tailored Wealth & Trust</span>
-                                <span class="text-brandred-600 font-bold">100% Client-Centric</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <span class="section-tag">Wisdom Life Advisory</span>
+            <h1>Wealth. Protection. Legacy.</h1>
+            <p>Comprehensive financial guidance built for individuals, families, and growing businesses.</p>
+            <a href="#contact" class="btn-primary">Get in Touch</a>
+          </div>
+          <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+              alt="Wisdom Life Advisory Office Space">
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Financial Planning Section -->
-    <section id="financial-planning" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold tracking-widest text-brandred-600 uppercase">Individual Wealth &
-                    Advisory</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">Comprehensive Wealth Advisory</h2>
-                <p class="text-gray-600 mt-3 text-base">We work with individuals and families across five core pillars
-                    to build resilience, optimize assets, and protect long-term legacies.</p>
-            </div>
-
-            <!-- 5 Core Wealth Pillars Grid (Minimalist & Executive) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-                <!-- Pillar 1: Wealth Accumulation -->
-                <div
-                    class="bg-white hover:bg-white p-8 rounded-2xl border border-gray-200/80 hover:border-brandred-600/40 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
-                    <div class="space-y-4">
-                        <h3
-                            class="text-xl font-bold text-navy-900 group-hover:text-brandred-600 transition-colors leading-snug">
-                            Wealth Accumulation</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Strategic growth roadmaps and investment
-                            strategies designed to build capital and expand long-term wealth portfolios.</p>
-                    </div>
-                    <a href="#contact"
-                        class="inline-flex items-center text-sm font-semibold text-brandred-600 pt-6 group-hover:translate-x-1 transition-transform">
-                        <span>Learn More</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- Pillar 2: Retirement Planning -->
-                <div
-                    class="bg-white hover:bg-white p-8 rounded-2xl border border-gray-200/80 hover:border-brandred-600/40 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
-                    <div class="space-y-4">
-                        <h3
-                            class="text-xl font-bold text-navy-900 group-hover:text-brandred-600 transition-colors leading-snug">
-                            Retirement Planning</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Securing comfortable golden years with reliable
-                            income streams, guaranteed savings, and structured post-career plans.</p>
-                    </div>
-                    <a href="#contact"
-                        class="inline-flex items-center text-sm font-semibold text-brandred-600 pt-6 group-hover:translate-x-1 transition-transform">
-                        <span>Learn More</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- Pillar 3: Financial Planning -->
-                <div
-                    class="bg-white hover:bg-white p-8 rounded-2xl border border-gray-200/80 hover:border-brandred-600/40 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
-                    <div class="space-y-4">
-                        <h3
-                            class="text-xl font-bold text-navy-900 group-hover:text-brandred-600 transition-colors leading-snug">
-                            Financial Planning</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Holistic financial modeling, cash flow
-                            management, and tailored advice aligned with your specific family objectives.</p>
-                    </div>
-                    <a href="#contact"
-                        class="inline-flex items-center text-sm font-semibold text-brandred-600 pt-6 group-hover:translate-x-1 transition-transform">
-                        <span>Learn More</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- Pillar 4: Protection Planning -->
-                <div
-                    class="bg-white hover:bg-white p-8 rounded-2xl border border-gray-200/80 hover:border-brandred-600/40 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
-                    <div class="space-y-4">
-                        <h3
-                            class="text-xl font-bold text-navy-900 group-hover:text-brandred-600 transition-colors leading-snug">
-                            Protection Planning</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Comprehensive risk management protecting your
-                            income, family medical care, and assets from life uncertainties.</p>
-                    </div>
-                    <a href="#contact"
-                        class="inline-flex items-center text-sm font-semibold text-brandred-600 pt-6 group-hover:translate-x-1 transition-transform">
-                        <span>Learn More</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- Pillar 5: Legacy Planning -->
-                <div
-                    class="bg-white hover:bg-white p-8 rounded-2xl border border-gray-200/80 hover:border-brandred-600/40 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between relative overflow-hidden">
-                    <div class="space-y-4">
-                        <h3
-                            class="text-xl font-bold text-navy-900 group-hover:text-brandred-600 transition-colors leading-snug">
-                            Legacy Planning</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Professional will drafting, trust structuring,
-                            and estate settlement for seamless multi-generational wealth transfer.</p>
-                    </div>
-                    <a href="#contact"
-                        class="inline-flex items-center text-sm font-semibold text-brandred-600 pt-6 group-hover:translate-x-1 transition-transform">
-                        <span>Learn More</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                    </a>
-                </div>
-            </div>
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Our Capabilities</span>
+          <h2>Tailored Advisory Services</h2>
         </div>
+
+        <div class="services-grid">
+          <!-- Individual Services -->
+          <div class="service-category">
+            <h3>Private Clients</h3>
+
+            <div class="service-item">
+              <h4>Protection Planning</h4>
+              <p>Structured life and medical insurance solutions designed to safeguard your family's baseline financial
+                security.</p>
+            </div>
+
+            <div class="service-item">
+              <h4>Wealth Accumulation</h4>
+              <p>Disciplined investment and fund allocation strategies tailored to support long-term wealth milestones
+                and retirement goals.</p>
+            </div>
+
+            <div class="service-item">
+              <h4>Legacy & Estate Planning</h4>
+              <p>Wills, trusts, and succession frameworks structured to ensure your assets transfer smoothly to the next
+                generation.</p>
+            </div>
+          </div>
+
+          <!-- Corporate Services -->
+          <div class="service-category">
+            <h3>Enterprise Solutions</h3>
+
+            <div class="service-item">
+              <h4>Group Benefits & Insurance</h4>
+              <p>Comprehensive employee protection packages designed to support health, wellbeing, and staff retention.
+              </p>
+            </div>
+
+            <div class="service-item">
+              <h4>Business Continuity</h4>
+              <p>Key-person protection and corporate contingency plans to shield business equity from unforeseen risks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Corporate Insurance Section -->
-    <section id="corporate-insurance"
-        class="py-24 bg-gradient-to-b from-gray-50 to-white border-t border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold tracking-widest text-brandred-600 uppercase">Enterprise Solutions</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 mt-2">Corporate Insurance & Group Benefits</h2>
-                <p class="text-gray-600 mt-3 text-base">Protecting your enterprise, retaining top talent, and securing
-                    business continuity through structured employee benefits and risk advisory.</p>
-            </div>
+    <!-- Careers Section -->
+    <section id="careers" class="careers">
+      <div class="container">
 
-            <!-- Corporate Insurance Featured Banner -->
-            <div class="bg-navy-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden mb-12">
-                <div
-                    class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-brandred-600/20 blur-3xl pointer-events-none">
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-                    <div class="lg:col-span-8 space-y-4">
-                        <span
-                            class="bg-brandred-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">Enterprise
-                            Risk Management</span>
-                        <h3 class="text-2xl sm:text-3xl font-bold text-white">Comprehensive Corporate Insurance</h3>
-                        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                            Designed to provide robust medical, term life, accident, and liability protection across
-                            your organization. Enhance employee retention and fulfill statutory welfare commitments with
-                            institutional efficiency.
-                        </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                            <div class="bg-navy-800/80 p-3 rounded-xl border border-gray-700/60 text-xs">
-                                <i class="fa-solid fa-check text-brandred-500 mr-1.5"></i> Employee Pooling Plans
-                            </div>
-                            <div class="bg-navy-800/80 p-3 rounded-xl border border-gray-700/60 text-xs">
-                                <i class="fa-solid fa-check text-brandred-500 mr-1.5"></i> Streamlined Claims Admin
-                            </div>
-                            <div class="bg-navy-800/80 p-3 rounded-xl border border-gray-700/60 text-xs">
-                                <i class="fa-solid fa-check text-brandred-500 mr-1.5"></i> Tax-Efficient Business
-                                Expense
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-4 text-center lg:text-right">
-                        <a href="#contact"
-                            class="inline-block bg-brandred-600 hover:bg-brandred-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg transition-all text-sm">
-                            Request Corporate Proposal
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Other Corporate Offerings Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div
-                    class="bg-white p-8 rounded-2xl border border-gray-200/80 hover:border-brandred-600/40 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                    <h4
-                        class="text-xl font-bold text-navy-900 group-hover:text-brandred-600 transition-colors leading-snug mb-3">
-                        Group Employee Benefits</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Customized outpatient, hospitalization, and dental
-                        insurance plans that keep your workforce healthy, secure, and motivated.</p>
-                </div>
-                <div
-                    class="bg-white p-8 rounded-2xl border border-gray-200/80 hover:border-brandred-600/40 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                    <h4
-                        class="text-xl font-bold text-navy-900 group-hover:text-brandred-600 transition-colors leading-snug mb-3">
-                        Key-Man & Shareholder Protection</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Financial safeguarding ensuring business stability,
-                        debt coverage, and smooth equity buyouts in the event of founder or key executive
-                        disability/loss.</p>
-                </div>
-                <div
-                    class="bg-white p-8 rounded-2xl border border-gray-200/80 hover:border-brandred-600/40 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                    <h4
-                        class="text-xl font-bold text-navy-900 group-hover:text-brandred-600 transition-colors leading-snug mb-3">
-                        Business Liability & Risk</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Comprehensive commercial risk evaluations and
-                        property/liability coverage tailored to protect enterprise physical and intangible assets.</p>
-                </div>
-            </div>
+        <!-- Simple & Direct Section Intro -->
+        <div class="careers-intro">
+          <span class="section-tag">Career Opportunities</span>
+          <h2>Build Your Career With Us</h2>
+          <p>Develop your professional pathway across financial advisory, apprentice mentorship, and business
+            development.</p>
         </div>
-    </section>
 
-    <!-- Will & Trust Section -->
-    <section id="will-trust" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-6 space-y-6">
-                    <span class="text-xs font-bold tracking-widest text-brandred-600 uppercase">Legacy & Estate</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-navy-900">Will & Trust Services</h2>
-                    <p class="text-gray-600 text-base leading-relaxed">
-                        Estate planning is essential to ensure your hard-earned assets are distributed according to your
-                        exact wishes. We provide professional will-writing, trust structuring, and legacy succession
-                        planning.
-                    </p>
-                    <div class="space-y-3">
-                        <div class="flex items-start space-x-3">
-                            <div class="text-brandred-600 mt-1"><i class="fa-solid fa-circle-check"></i></div>
-                            <div>
-                                <h4 class="font-bold text-navy-900 text-sm">Professional Will Drafting</h4>
-                                <p class="text-xs text-gray-500">Prevent legal complications and secure clear asset
-                                    distribution for your family.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="text-brandred-600 mt-1"><i class="fa-solid fa-circle-check"></i></div>
-                            <div>
-                                <h4 class="font-bold text-navy-900 text-sm">Family Trust Structures</h4>
-                                <p class="text-xs text-gray-500">Protect wealth across generations, provide for minors,
-                                    and manage charitable giving.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-4">
-                        <a href="#contact"
-                            class="bg-navy-900 hover:bg-navy-800 text-white font-semibold px-7 py-3.5 rounded-xl shadow transition-all inline-block text-sm">
-                            Consult on Will & Trust
-                        </a>
-                    </div>
-                </div>
-                <div class="lg:col-span-6 bg-gray-50 p-8 rounded-3xl border border-gray-200 shadow-sm">
-                    <div class="text-center py-6">
-                        <div
-                            class="w-20 h-20 bg-navy-900 text-white rounded-2xl flex items-center justify-center mx-auto text-3xl mb-4 shadow-lg">
-                            <i class="fa-solid fa-file-contract"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-navy-900">Secure Your Legacy Today</h3>
-                        <p class="text-xs text-gray-500 mt-2 max-w-sm mx-auto">Take control of your estate planning with
-                            licensed advisors who care about your family's enduring security.</p>
-                    </div>
-                    <div class="pt-4 border-t border-gray-200 flex justify-between text-xs font-semibold text-gray-700">
-                        <span><i class="fa-solid fa-lock text-brandred-600 mr-1"></i> Strict Confidentiality</span>
-                        <span><i class="fa-solid fa-award text-brandred-600 mr-1"></i> Certified Specialists</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- 3 Opportunity Cards Grid -->
+        <div class="careers-grid">
 
-    <!-- About Us Section -->
-    <section id="about" class="py-24 bg-navy-900 text-white relative overflow-hidden">
-        <div
-            class="absolute inset-0 opacity-10 bg-[radial-gradient(#d93838_1px,transparent_1px)] [background-size:16px_16px]">
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <!-- About Header & Mission -->
-            <div class="max-w-3xl mx-auto text-center mb-16">
-                <span class="text-xs font-bold tracking-widest text-brandred-500 uppercase">ABOUT WISDOM LIFE
-                    ADVISORY</span>
-                <h2 class="text-3xl sm:text-4xl font-bold mt-2 text-white">Wisdom in Planning. Confidence in Living. A
-                    Legacy for Tomorrow.</h2>
-                <p class="text-gray-300 mt-4 text-base leading-relaxed">
-                    With decades of experience in financial planning, our team believes that good advice starts with
-                    listening — understanding each client's family, goals, concerns, and priorities before recommending
-                    any solution. At Wisdom Life Advisory, we believe financial planning is about more than products —
-                    it is about empowering people, families, and businesses to make informed decisions for today and
-                    tomorrow.
-                </p>
-            </div>
-
-            <!-- Approach breakdown & Philosophy -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
-                <div class="lg:col-span-6 bg-navy-800 p-8 rounded-2xl border border-gray-700 shadow-xl space-y-6">
-                    <h3 class="text-xl font-bold text-brandred-500 flex items-center">
-                        <i class="fa-solid fa-compass mr-2"></i> Our Approach
-                    </h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">Our approach brings together:</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-medium text-gray-200">
-                        <div class="bg-navy-900/60 p-3 rounded-xl border border-gray-700/50 flex items-center">
-                            <i class="fa-solid fa-check text-brandred-500 mr-2"></i> Financial Planning
-                        </div>
-                        <div class="bg-navy-900/60 p-3 rounded-xl border border-gray-700/50 flex items-center">
-                            <i class="fa-solid fa-check text-brandred-500 mr-2"></i> Life & General Insurance
-                        </div>
-                        <div class="bg-navy-900/60 p-3 rounded-xl border border-gray-700/50 flex items-center">
-                            <i class="fa-solid fa-check text-brandred-500 mr-2"></i> Corporate & Group Insurance
-                        </div>
-                        <div class="bg-navy-900/60 p-3 rounded-xl border border-gray-700/50 flex items-center">
-                            <i class="fa-solid fa-check text-brandred-500 mr-2"></i> Will & Trust
-                        </div>
-                        <div
-                            class="bg-navy-900/60 p-3 rounded-xl border border-gray-700/50 flex items-center sm:col-span-2">
-                            <i class="fa-solid fa-check text-brandred-500 mr-2"></i> Legacy Planning
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-xs leading-relaxed pt-2">
-                        We work with individuals, families and businesses to help them protect what matters, build
-                        financial strength and plan for the future. At the same time, we are committed to developing the
-                        next generation of financial professionals through training, mentorship and career
-                        opportunities.
-                    </p>
-                </div>
-
-                <div class="lg:col-span-6 space-y-6">
-                    <div class="bg-navy-800 p-8 rounded-2xl border border-gray-700 shadow-xl text-center space-y-3">
-                        <h3 class="text-xl font-bold text-brandred-500">Our Philosophy</h3>
-                        <div class="text-xl font-bold text-white space-y-1">
-                            <p>Plan with Wisdom.</p>
-                            <p class="text-brandred-500">Live with Confidence.</p>
-                            <p>Leave a Legacy.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- WISDOM Values Acronym -->
+          <!-- Card 1: Wealth Planning Advisor -->
+          <div class="career-card">
             <div>
-                <h3 class="text-2xl font-bold text-center mb-10 text-white">Our Values</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-navy-800 p-6 rounded-xl border border-gray-700/80">
-                        <div class="text-brandred-500 font-bold text-lg mb-1">W — Wisdom</div>
-                        <p class="text-xs text-gray-300">Wise and thoughtful financial guidance.</p>
-                    </div>
-                    <div class="bg-navy-800 p-6 rounded-xl border border-gray-700/80">
-                        <div class="text-brandred-500 font-bold text-lg mb-1">I — Integrity</div>
-                        <p class="text-xs text-gray-300">Honest and trusted relationships.</p>
-                    </div>
-                    <div class="bg-navy-800 p-6 rounded-xl border border-gray-700/80">
-                        <div class="text-brandred-500 font-bold text-lg mb-1">S — Security</div>
-                        <p class="text-xs text-gray-300">Protecting what matters most.</p>
-                    </div>
-                    <div class="bg-navy-800 p-6 rounded-xl border border-gray-700/80">
-                        <div class="text-brandred-500 font-bold text-lg mb-1">D — Direction</div>
-                        <p class="text-xs text-gray-300">Creating clarity for your financial journey.</p>
-                    </div>
-                    <div class="bg-navy-800 p-6 rounded-xl border border-gray-700/80">
-                        <div class="text-brandred-500 font-bold text-lg mb-1">O — Opportunity</div>
-                        <p class="text-xs text-gray-300">Creating opportunities for clients and future advisors.</p>
-                    </div>
-                    <div class="bg-navy-800 p-6 rounded-xl border border-gray-700/80">
-                        <div class="text-brandred-500 font-bold text-lg mb-1">M — Legacy</div>
-                        <p class="text-xs text-gray-300">Planning today for generations to come.</p>
-                    </div>
-                </div>
+              <span class="career-badge">Advisory Track</span>
+              <h3>Wealth Planning Advisor</h3>
+              <p class="card-desc">Help individuals and families achieve their goals through financial planning and
+                trusted advisory services.</p>
+
+              <span class="role-section-title">What You'll Do</span>
+              <ul class="career-list">
+                <li>Develop personalized wealth, protection, and legacy strategies</li>
+                <li>Understand client financial goals, needs, and risk profiles</li>
+                <li>Provide guidance on insurance, investments, and estate planning</li>
+                <li>Build long-term relationships based on trust and professionalism</li>
+              </ul>
             </div>
-        </div>
-    </section>
+            <a href="#contact" class="btn-card">Apply for Advisor Role</a>
+          </div>
 
-    <!-- Careers & Great A.C.E. Apprentice Programme Section -->
-    <section id="careers" class="py-24 bg-gradient-to-b from-white to-gray-50 border-t border-gray-200">
-        <div id="apprentice-programme" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+          <!-- Card 2: Apprentice Program -->
+          <div class="career-card featured">
+            <div>
+              <span class="career-badge gold">Mentorship Program</span>
+              <h3>Apprentice Program</h3>
+              <p class="card-desc">Gain valuable industry exposure and practical experience within a supportive learning
+                environment.</p>
 
-            <!-- Programme Hero Header -->
-            <div class="text-center max-w-4xl mx-auto space-y-5">
-                <span
-                    class="inline-block bg-brandred-600/10 text-brandred-600 border border-brandred-600/20 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
-                    Great A.C.E. Apprentice Programme
-                </span>
-                <h2 class="text-3xl sm:text-5xl font-bold text-navy-900 leading-tight">
-                    Start Your Career. Learn the Business. <br class="hidden sm:inline">
-                    <span class="text-brandred-600">Build Your Future.</span>
-                </h2>
-                <p class="text-gray-600 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
-                    A structured opportunity for young talents to explore a career in financial services while
-                    developing practical knowledge, professional skills, and real-world business experience.
-                </p>
-                <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#apprentice-journey"
-                        class="w-full sm:w-auto bg-navy-900 hover:bg-navy-800 text-white font-semibold px-7 py-3.5 rounded-xl shadow-md transition-all text-sm">
-                        Explore The Programme
-                    </a>
-                    <a href="#apprentice-apply"
-                        class="w-full sm:w-auto bg-brandred-600 hover:bg-brandred-700 text-white font-semibold px-7 py-3.5 rounded-xl shadow-lg transition-all text-sm">
-                        Apply / Register Your Interest
-                    </a>
-                </div>
+              <span class="role-section-title">What You'll Gain</span>
+              <ul class="career-list">
+                <li>Hands-on experience in financial planning & client engagement</li>
+                <li>Direct mentorship from senior experienced advisors</li>
+                <li>Professional training and communication skill development</li>
+                <li>Strong foundation for undergraduates & recent graduates</li>
+              </ul>
             </div>
+            <a href="#contact" class="btn-card"
+              style="background-color: var(--accent-gold); color: #FFF; border-color: var(--accent-gold);">Apply for
+              Apprentice Program</a>
+          </div>
 
-            <!-- What You'll Experience: 5 Pillars -->
-            <div id="apprentice-journey" class="space-y-8">
-                <div class="text-center max-w-2xl mx-auto">
-                    <span class="text-xs font-bold tracking-widest text-brandred-600 uppercase">Core Competencies</span>
-                    <h3 class="text-2xl sm:text-3xl font-bold text-navy-900 mt-1">What You'll Experience</h3>
-                </div>
+          <!-- Card 3: Business Development & Marketing Executive -->
+          <div class="career-card">
+            <div>
+              <span class="career-badge">Growth & Marketing</span>
+              <h3>Business Development Executive</h3>
+              <p class="card-desc">Expand market reach and build relationships with prospective clients and strategic
+                partners.</p>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-                    <!-- 01 Learn -->
-                    <div
-                        class="bg-white p-7 rounded-2xl border border-gray-200/80 hover:border-brandred-600/40 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <span
-                                class="text-xs font-mono font-semibold text-brandred-600 tracking-widest block">01</span>
-                            <h4 class="text-xl font-bold text-navy-900 group-hover:text-brandred-600 transition-colors">
-                                Learn</h4>
-                            <p class="text-gray-600 text-sm leading-relaxed">Build foundational knowledge in financial
-                                planning, protection, and understanding client needs.</p>
-                        </div>
-                    </div>
-
-                    <!-- 02 Develop -->
-                    <div
-                        class="bg-white p-7 rounded-2xl border border-gray-200/80 hover:border-brandred-600/40 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <span
-                                class="text-xs font-mono font-semibold text-brandred-600 tracking-widest block">02</span>
-                            <h4 class="text-xl font-bold text-navy-900 group-hover:text-brandred-600 transition-colors">
-                                Develop</h4>
-                            <p class="text-gray-600 text-sm leading-relaxed">Strengthen communication, presentation,
-                                relationship-building, and business skills.</p>
-                        </div>
-                    </div>
-
-                    <!-- 03 practice -->
-                    <div
-                        class="bg-white p-7 rounded-2xl border border-gray-200/80 hover:border-brandred-600/40 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <span
-                                class="text-xs font-mono font-semibold text-brandred-600 tracking-widest block">03</span>
-                            <h4 class="text-xl font-bold text-navy-900 group-hover:text-brandred-600 transition-colors">
-                                practice</h4>
-                            <p class="text-gray-600 text-sm leading-relaxed">Apply what you learn through practical
-                                activities, client engagement, and real-world experience.</p>
-                        </div>
-                    </div>
-
-                    <!-- 04 Grow -->
-                    <div
-                        class="bg-white p-7 rounded-2xl border border-gray-200/80 hover:border-brandred-600/40 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <span
-                                class="text-xs font-mono font-semibold text-brandred-600 tracking-widest block">04</span>
-                            <h4 class="text-xl font-bold text-navy-900 group-hover:text-brandred-600 transition-colors">
-                                Grow</h4>
-                            <p class="text-gray-600 text-sm leading-relaxed">Develop confidence, professional
-                                discipline, and entrepreneurial thinking.</p>
-                        </div>
-                    </div>
-
-                    <!-- 05 Lead -->
-                    <div
-                        class="bg-white p-7 rounded-2xl border border-gray-200/80 hover:border-brandred-600/40 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <span
-                                class="text-xs font-mono font-semibold text-brandred-600 tracking-widest block">05</span>
-                            <h4 class="text-xl font-bold text-navy-900 group-hover:text-brandred-600 transition-colors">
-                                Lead</h4>
-                            <p class="text-gray-600 text-sm leading-relaxed">Build the foundation for a long-term career
-                                and future leadership opportunities.</p>
-                        </div>
-                    </div>
-                </div>
+              <span class="role-section-title">What You'll Do</span>
+              <ul class="career-list">
+                <li>Identify new market segments and business opportunities</li>
+                <li>Support marketing campaigns and growth initiatives</li>
+                <li>Conduct market research and evaluate industry trends</li>
+                <li>Collaborate with advisors to promote client solutions</li>
+              </ul>
             </div>
-
-            <!-- Two-Column Section: 12-Month Career Journey & Who We're Looking For -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                <!-- 12-Month Career Journey -->
-                <div
-                    class="lg:col-span-6 bg-white p-8 sm:p-10 rounded-3xl border border-gray-200/80 shadow-sm flex flex-col justify-between space-y-6">
-                    <div>
-                        <span class="text-xs font-bold tracking-widest text-brandred-600 uppercase">Roadmap</span>
-                        <h3 class="text-2xl font-bold text-navy-900 mt-1 mb-3">12-Month Career Journey</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-6">A clear, phased progression designed to
-                            transition high-potential talents into confident wealth practitioners.</p>
-
-                        <div class="space-y-4">
-                            <!-- Phase 1 -->
-                            <div
-                                class="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-brandred-600/30 transition-all">
-                                <div class="flex items-center justify-between mb-2">
-                                    <span
-                                        class="text-xs font-bold uppercase tracking-wider text-brandred-600 bg-brandred-50 px-3 py-1 rounded-md">Phase
-                                        01</span>
-                                    <span class="text-xs font-semibold text-gray-500">Months 1 – 3</span>
-                                </div>
-                                <h4 class="text-lg font-bold text-navy-900 mb-1.5">3 Months — Training & Foundation</h4>
-                                <p class="text-gray-600 text-sm leading-relaxed">Learn the fundamentals, develop
-                                    professional skills, and prepare for practical application.</p>
-                            </div>
-
-                            <!-- Phase 2 -->
-                            <div
-                                class="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-brandred-600/30 transition-all">
-                                <div class="flex items-center justify-between mb-2">
-                                    <span
-                                        class="text-xs font-bold uppercase tracking-wider text-navy-900 bg-navy-100 px-3 py-1 rounded-md">Phase
-                                        02</span>
-                                    <span class="text-xs font-semibold text-gray-500">Months 4 – 12</span>
-                                </div>
-                                <h4 class="text-lg font-bold text-navy-900 mb-1.5">9 Months — Practice & Development
-                                </h4>
-                                <p class="text-gray-600 text-sm leading-relaxed">Put your knowledge into practice,
-                                    develop client relationships, and grow your professional capabilities.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pt-2 border-t border-gray-100 text-xs text-gray-500 flex items-center justify-between">
-                        <span><i class="fa-solid fa-graduation-cap text-brandred-600 mr-1.5"></i> Comprehensive
-                            Certification</span>
-                        <span><i class="fa-solid fa-user-group text-brandred-600 mr-1.5"></i> Senior Mentorship</span>
-                    </div>
-                </div>
-
-                <!-- Who We're Looking For -->
-                <div
-                    class="lg:col-span-6 bg-navy-900 text-white p-8 sm:p-10 rounded-3xl shadow-xl flex flex-col justify-between space-y-6 relative overflow-hidden">
-                    <div class="relative z-10 space-y-4">
-                        <span class="text-xs font-bold tracking-widest text-brandred-500 uppercase">Ideal Candidate
-                            Profile</span>
-                        <h3 class="text-2xl font-bold text-white mt-1">Who We're Looking For</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">We seek driven individuals with an appetite to
-                            learn, build, and shape their personal career trajectory.</p>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                            <div
-                                class="flex items-center space-x-2.5 text-sm text-gray-200 bg-navy-800/80 p-3 rounded-xl border border-gray-700/60">
-                                <i class="fa-solid fa-circle-check text-brandred-500"></i>
-                                <span>Diploma / Degree students & graduates</span>
-                            </div>
-                            <div
-                                class="flex items-center space-x-2.5 text-sm text-gray-200 bg-navy-800/80 p-3 rounded-xl border border-gray-700/60">
-                                <i class="fa-solid fa-circle-check text-brandred-500"></i>
-                                <span>Young professionals</span>
-                            </div>
-                            <div
-                                class="flex items-center space-x-2.5 text-sm text-gray-200 bg-navy-800/80 p-3 rounded-xl border border-gray-700/60">
-                                <i class="fa-solid fa-circle-check text-brandred-500"></i>
-                                <span>Interested in finance & business</span>
-                            </div>
-                            <div
-                                class="flex items-center space-x-2.5 text-sm text-gray-200 bg-navy-800/80 p-3 rounded-xl border border-gray-700/60">
-                                <i class="fa-solid fa-circle-check text-brandred-500"></i>
-                                <span>Good communicators</span>
-                            </div>
-                            <div
-                                class="flex items-center space-x-2.5 text-sm text-gray-200 bg-navy-800/80 p-3 rounded-xl border border-gray-700/60">
-                                <i class="fa-solid fa-circle-check text-brandred-500"></i>
-                                <span>Willing to learn</span>
-                            </div>
-                            <div
-                                class="flex items-center space-x-2.5 text-sm text-gray-200 bg-navy-800/80 p-3 rounded-xl border border-gray-700/60">
-                                <i class="fa-solid fa-circle-check text-brandred-500"></i>
-                                <span>Responsible & self-motivated</span>
-                            </div>
-                            <div
-                                class="flex items-center space-x-2.5 text-sm text-gray-200 bg-navy-800/80 p-3 rounded-xl border border-gray-700/60">
-                                <i class="fa-solid fa-circle-check text-brandred-500"></i>
-                                <span>Entrepreneurial-minded</span>
-                            </div>
-                            <div
-                                class="flex items-center space-x-2.5 text-sm text-gray-200 bg-navy-800/80 p-3 rounded-xl border border-gray-700/60">
-                                <i class="fa-solid fa-circle-check text-brandred-500"></i>
-                                <span>Long-term career development</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Strong CTA & Application Form -->
-            <div id="apprentice-apply"
-                class="bg-white p-8 sm:p-12 rounded-3xl border border-gray-200/80 shadow-xl relative overflow-hidden">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                    <div class="lg:col-span-5 space-y-4">
-                        <span class="text-xs font-bold tracking-widest text-brandred-600 uppercase">Your Next
-                            Step</span>
-                        <h3 class="text-3xl sm:text-4xl font-bold text-navy-900 leading-tight">
-                            YOUR CAREER. <br>
-                            YOUR CHOICE. <br>
-                            <span class="text-brandred-600">YOUR FUTURE.</span>
-                        </h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            Explore the Great A.C.E. Apprentice Programme today and take the definitive first step
-                            toward building a high-impact financial advisory practice.
-                        </p>
-                        <div class="pt-2 space-y-2 text-xs text-gray-500">
-                            <p class="flex items-center"><i class="fa-solid fa-check text-brandred-600 mr-2"></i>
-                                Structured career trajectory & mentorship</p>
-                            <p class="flex items-center"><i class="fa-solid fa-check text-brandred-600 mr-2"></i>
-                                Practical client engagement & real business exposure</p>
-                            <p class="flex items-center"><i class="fa-solid fa-check text-brandred-600 mr-2"></i>
-                                Foundation for long-term advisory leadership</p>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-7 bg-gray-50 p-7 sm:p-8 rounded-2xl border border-gray-200">
-                        <div class="mb-4">
-                            <h4 class="text-lg font-bold text-navy-900">Apply / Register Your Interest</h4>
-                            <p class="text-xs text-gray-500 mt-0.5">Submit your details below to begin your Great A.C.E.
-                                journey.</p>
-                        </div>
-                        <form
-                            onsubmit="event.preventDefault(); showModal('Thank you for registering your interest in the Great A.C.E. Apprentice Programme! Our talent development team will be in touch with you shortly.');"
-                            class="space-y-4">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-semibold text-navy-900 mb-1">Full Name</label>
-                                    <input type="text" required
-                                        class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm bg-white"
-                                        placeholder="John Doe">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-semibold text-navy-900 mb-1">Phone Number</label>
-                                    <input type="tel" required
-                                        class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm bg-white"
-                                        placeholder="+60 12-345 6789">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-navy-900 mb-1">Email Address</label>
-                                <input type="email" required
-                                    class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm bg-white"
-                                    placeholder="john@example.com">
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-semibold text-navy-900 mb-1">Education /
-                                        Background</label>
-                                    <select
-                                        class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm bg-white">
-                                        <option>Diploma Student / Graduate</option>
-                                        <option>Degree Student / Graduate</option>
-                                        <option>Young Professional</option>
-                                        <option>Career Switcher</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-semibold text-navy-900 mb-1">Programme
-                                        Selection</label>
-                                    <select
-                                        class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm bg-white">
-                                        <option>Great A.C.E. Apprentice Programme</option>
-                                        <option>Private Wealth Advisory Track</option>
-                                        <option>Corporate Insurance Specialist Track</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="pt-2">
-                                <button type="submit"
-                                    class="w-full bg-brandred-600 hover:bg-brandred-700 text-white font-semibold py-3.5 rounded-lg shadow-md hover:shadow-lg transition-all text-sm text-center">
-                                    Apply / Register Your Interest
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <a href="#contact" class="btn-card">Apply for BD Track</a>
+          </div>
 
         </div>
+
+        <!-- Why Join Us Pillar Strip -->
+        <div class="why-join">
+          <h4 class="why-join-title">Why Join Wisdom Life Advisory?</h4>
+          <div class="pillars-grid">
+            <div class="pillar-box">
+              <h5>Structured Training</h5>
+              <p>Continuous learning programs tailored to your stage.</p>
+            </div>
+            <div class="pillar-box">
+              <h5>Direct Mentorship</h5>
+              <p>Guidance from experienced professionals.</p>
+            </div>
+            <div class="pillar-box">
+              <h5>Collaborative Team</h5>
+              <p>Supportive environment focused on joint growth.</p>
+            </div>
+            <div class="pillar-box">
+              <h5>Career Advancement</h5>
+              <p>Clear opportunities for leadership progression.</p>
+            </div>
+            <div class="pillar-box">
+              <h5>Meaningful Work</h5>
+              <p>Positively impact family and business futures.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-gray-50 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-navy-900 rounded-3xl p-8 sm:p-16 text-white shadow-2xl relative overflow-hidden">
-                <div
-                    class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-brandred-600/20 blur-3xl pointer-events-none">
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-                    <div class="lg:col-span-5 space-y-6">
-                        <span class="text-xs font-bold tracking-widest text-brandred-500 uppercase">Get Started
-                            Today</span>
-                        <h2 class="text-3xl sm:text-4xl font-bold text-white">Schedule Your Free Financial Review</h2>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            Take the first step toward absolute peace of mind. Meet with our experienced advisors for a
-                            comprehensive assessment of your personal wealth, corporate benefits, or legacy plan.
-                        </p>
-                        <div class="space-y-4 pt-2">
-                            <div class="flex items-center space-x-3 text-sm text-gray-300">
-                                <div
-                                    class="w-8 h-8 rounded-lg bg-brandred-600/20 flex items-center justify-center text-brandred-500">
-                                    <i class="fa-solid fa-phone"></i>
-                                </div>
-                                <span>6012-4011868</span>
-                            </div>
-                            <div class="flex items-center space-x-3 text-sm text-gray-300">
-                                <div
-                                    class="w-8 h-8 rounded-lg bg-brandred-600/20 flex items-center justify-center text-brandred-500">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </div>
-                                <span>wlifeadvisory@gmail.com</span>
-                            </div>
-                            <div class="flex items-center space-x-3 text-sm text-gray-300">
-                                <div
-                                    class="w-8 h-8 rounded-lg bg-brandred-600/20 flex items-center justify-center text-brandred-500">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                </div>
-                                <span>7205A, Kompleks Pern Seri Cemerlang, Jln Kg Paya, 12200 Butterworth</span>
-                            </div>
-                        </div>
-                    </div>
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <span class="section-tag">Direct Line</span>
+            <h2>Initiate a Private Consultation</h2>
+            <p>Reach out to discuss your personal financial goals, corporate benefit strategies, or career opportunities
+              with Wisdom Life Advisory.</p>
 
-                    <div class="lg:col-span-7 bg-white text-navy-900 p-8 rounded-2xl shadow-xl">
-                        <h3 class="text-xl font-bold mb-4">Request Your Consultation</h3>
-                        <form
-                            onsubmit="event.preventDefault(); showModal('Thank you! Your request for a Free Financial Review or Corporate Proposal has been received. Our advisory team will reach out within 24 hours.');"
-                            class="space-y-4">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-semibold text-navy-900 mb-1">Your Name /
-                                        Company</label>
-                                    <input type="text" required
-                                        class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm"
-                                        placeholder="Jane Doe / Enterprise Inc.">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-semibold text-navy-900 mb-1">Phone Number</label>
-                                    <input type="tel" required
-                                        class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm"
-                                        placeholder="+60 12-345 6789">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-navy-900 mb-1">Email Address</label>
-                                <input type="email" required
-                                    class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm"
-                                    placeholder="jane@example.com">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-navy-900 mb-1">Service Interest</label>
-                                <select
-                                    class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm bg-white">
-                                    <option>Financial Planning & Wealth Review</option>
-                                    <option>Corporate Insurance & Employee Benefits Proposal</option>
-                                    <option>Will & Trust Consultation</option>
-                                    <option>Career / Apprentice Program Inquiry</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-navy-900 mb-1">Message or Specific
-                                    Goals</label>
-                                <textarea rows="3"
-                                    class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-brandred-600 text-sm"
-                                    placeholder="Tell us about your organization or personal objectives..."></textarea>
-                            </div>
-                            <button type="submit"
-                                class="w-full bg-brandred-600 hover:bg-brandred-700 text-white font-semibold py-3.5 rounded-lg shadow-lg transition-all text-sm">
-                                Request Consultation / Proposal
-                            </button>
-                        </form>
-                    </div>
-                </div>
+            <div class="info-detail">
+              <label>General Inquiries</label>
+              <span>contact@wisdomlife.com</span>
             </div>
+
+            <div class="info-detail">
+              <label>Advisory Office</label>
+              <span>Kuala Lumpur, Malaysia</span>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <form action="#" method="POST"
+              onsubmit="event.preventDefault(); alert('Thank you for reaching out. We will contact you shortly.');">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" required placeholder="John Doe">
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required placeholder="john@example.com">
+              </div>
+
+              <div class="form-group">
+                <label for="topic">Primary Area of Interest</label>
+                <select id="topic">
+                  <option value="individual">Personal Wealth & Protection</option>
+                  <option value="corporate">Corporate & Group Benefits</option>
+                  <option value="advisor">Career: Wealth Planning Advisor</option>
+                  <option value="apprentice">Career: Apprentice Program</option>
+                  <option value="bd">Career: Business Development Executive</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" placeholder="How can we assist you?"></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width: 100%;">Submit Inquiry</button>
+            </form>
+          </div>
         </div>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="bg-navy-900 text-white border-t border-gray-800 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-3">
-                        <img src="logo_small.png" alt="Logo" class="h-10 w-10 object-contain rounded-full"
-                            onerror="this.src='https://placehold.co/100x100/1a2b4c/ffffff?text=WLA'">
-                        <span class="text-base font-bold tracking-tight">WISDOM LIFE ADVISORY</span>
-                    </div>
-                    <p class="text-xs text-gray-400 leading-relaxed">
-                        Wisdom in Planning. Confidence in Living. A Legacy for Tomorrow. (智慧人生)
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-sm font-bold text-white mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-xs text-gray-400">
-                        <li><a href="#home" class="hover:text-brandred-500 transition-colors">Home</a></li>
-                        <li><a href="#financial-planning" class="hover:text-brandred-500 transition-colors">Financial
-                                Planning</a></li>
-                        <li><a href="#corporate-insurance" class="hover:text-brandred-500 transition-colors">Corporate
-                                Insurance</a></li>
-                        <li><a href="#will-trust" class="hover:text-brandred-500 transition-colors">Will & Trust</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-sm font-bold text-white mb-4">About & Career</h4>
-                    <ul class="space-y-2 text-xs text-gray-400">
-                        <li><a href="#about" class="hover:text-brandred-500 transition-colors">About Us</a></li>
-                        <li><a href="#careers" class="hover:text-brandred-500 transition-colors">Careers & Training</a>
-                        </li>
-                        <li><a href="#apprentice-programme"
-                                class="hover:text-brandred-500 transition-colors text-brandred-400">Apprentice
-                                Programme</a>
-                        </li>
-                        <li><a href="#about" class="hover:text-brandred-500 transition-colors">Philosophy & Values</a>
-                        </li>
-                        <li><a href="#contact" class="hover:text-brandred-500 transition-colors">Client Portal Login</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div
-                class="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400">
-                <p>&copy; 2026 Wisdom Life Advisory (智慧人生). All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 sm:mt-0">
-                    <a href="#contact" class="hover:text-brandred-500 transition-colors">Privacy Policy</a>
-                    <a href="#contact" class="hover:text-brandred-500 transition-colors">Terms of Service</a>
-                    <a href="#contact" class="hover:text-brandred-500 transition-colors">Regulatory Disclosure</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Custom Modal Box (No alert() used) -->
-    <div id="custom-modal"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
-        <div
-            class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl border border-gray-100 text-center space-y-4">
-            <div
-                class="w-16 h-16 bg-brandred-600/10 text-brandred-600 rounded-full flex items-center justify-center mx-auto text-2xl">
-                <i class="fa-solid fa-check"></i>
-            </div>
-            <h3 class="text-xl font-bold text-navy-900">Success</h3>
-            <p id="modal-message" class="text-sm text-gray-600 leading-relaxed"></p>
-            <button onclick="closeModal()"
-                class="w-full bg-brandred-600 hover:bg-brandred-700 text-white font-semibold py-3 rounded-xl shadow transition-all text-sm">
-                OK
-            </button>
-        </div>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Wisdom Life Advisory. All rights reserved.</p>
     </div>
+  </footer>
 
-    <!-- Script for interactivity -->
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on clicking links
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Custom Modal Functions
-        function showModal(message) {
-            document.getElementById('modal-message').innerText = message;
-            document.getElementById('custom-modal').classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('custom-modal').classList.add('hidden');
-        }
-    </script>
 </body>
 
 </html>
