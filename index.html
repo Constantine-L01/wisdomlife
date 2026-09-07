@@ -119,6 +119,14 @@
       color: var(--text-primary);
     }
 
+    .logo-img {
+      height: 36px;
+      /* Adjust height to fit your logo shape */
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
     .logo-icon {
       width: 28px;
       height: 28px;
@@ -324,7 +332,8 @@
 
     .career-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04);
+      border-color: var(--accent-gold);
+      box-shadow: 0 16px 32px rgba(184, 146, 90, 0.12);
     }
 
     .career-card.featured {
@@ -571,11 +580,7 @@
     <div class="container">
       <nav>
         <a href="#" class="logo">
-          <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="32" height="32" rx="4" fill="#B8925A" />
-            <path d="M10 10L16 22L22 10" stroke="white" stroke-width="2.2" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
+          <img src="logo_small.png" alt="Wisdom Life Advisory Logo" class="logo-img">
           <span>WISDOM LIFE <span>ADVISORY</span></span>
         </a>
         <ul class="nav-links">
@@ -694,9 +699,9 @@
           </div>
 
           <!-- Card 2: Apprentice Program -->
-          <div class="career-card featured">
+          <div class="career-card">
             <div>
-              <span class="career-badge gold">Mentorship Program</span>
+              <span class="career-badge">Mentorship Program</span>
               <h3>Apprentice Program</h3>
               <p class="card-desc">Gain valuable industry exposure and practical experience within a supportive learning
                 environment.</p>
@@ -709,8 +714,7 @@
                 <li>Strong foundation for undergraduates & recent graduates</li>
               </ul>
             </div>
-            <a href="#contact" class="btn-card"
-              style="background-color: var(--accent-gold); color: #FFF; border-color: var(--accent-gold);">Apply for
+            <a href="#contact" class="btn-card">Apply for
               Apprentice Program</a>
           </div>
 
