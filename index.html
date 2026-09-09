@@ -739,7 +739,12 @@
         padding: 95px 0 40px;
       }
 
-      .hero-grid,
+      .hero-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
       .about-grid,
       .services-grid,
       .contact-grid {
@@ -770,14 +775,15 @@
       }
 
       .hero-image {
+        order: -1;
         padding: 6px;
-        margin-top: 4px;
+        margin-top: 0;
         border-radius: 8px;
       }
 
       .hero-image img {
         height: auto;
-        max-height: 320px;
+        max-height: 280px;
         aspect-ratio: 16 / 10;
         object-fit: cover;
         border-radius: 6px;
